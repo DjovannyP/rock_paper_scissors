@@ -1,13 +1,28 @@
 
-//value get from th computer
-/*
-Once I know there are 3 value to return, I will stuck them in a array.
-*/
 let arrayChoice = ["rock", "paper", "scissors"];
 
 function getComputerChoice (arr){
  let choice = Math.floor(Math.random() * arr.length);
- return choice;
+ return arrayChoice[choice];
 }
 
-console.log(getComputerChoice(arrayChoice));
+
+function playRound(playerSelection, computerSelection){
+
+    if (playerSelection === "rock" && computerSelection === "paper") {
+        return "You lose! Paper beats rock";
+    } else if (playerSelection === "paper" && computerSelection === "rock") {
+        return "You win! Paper beats rock";
+    } else if (playerSelection === "rock" && computerSelection === "scissors") {
+        return "You win! Rock beats scissors";
+    } else if (playerSelection === "scissors" && computerSelection === "rock") {
+        return "You lose! Rock beats scissors";
+    } else if (playerSelection === "paper" && computerSelection === "scissors") {
+        return "You lose! Scissors beat paper";
+    } else if (playerSelection === "scissors" && computerSelection === "paper") {
+        return "You win! Scissors beat paper";
+    } else {
+        return "TIES!";
+    }
+}
+
