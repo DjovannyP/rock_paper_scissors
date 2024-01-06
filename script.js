@@ -1,22 +1,19 @@
 
-//value get from th computer
-/*
-Once I know there are 3 value to return, I will stuck them in a array.
-*/
+
 let arrayChoice = ["rock", "paper", "scissors"];
 
-function getComputerChoice (arr){
- let choice = Math.floor(Math.random() * arr.length);
+function getComputerChoice(arr){
+ let choice = Math.floor(Math.random() * arr.length); //random computer choice
  return arrayChoice[choice];
 }
 
 
-function playRound(playerSelection, computerSelection){ // I tried to calculate each posibilities but 
-    //it's a little to much work. I wanted to use the switch statement but I don't understand it yet.
+function playRound(playerSelection, computerSelection){ 
 
     if (playerSelection === "rock" && computerSelection === "paper") {
         return "You lose! Paper beats rock";
-    } else if (playerSelection === "paper" && computerSelection === "rock") {
+    } 
+    else if (playerSelection === "paper" && computerSelection === "rock") {
         return "You win! Paper beats rock";
     } else if (playerSelection === "rock" && computerSelection === "scissors") {
         return "You win! Rock beats scissors";
@@ -31,20 +28,24 @@ function playRound(playerSelection, computerSelection){ // I tried to calculate 
     }
 }
 
-function game(){
+    let count = 0;
+    let playerSelection;
+    let computerSelection ;
 
-   for(i = 0; i < 5; i ++){
-    console.log(playRound(playerSelection, computerSelection));
-   }
     
-        
+    
 
+ function game(){
+
+    while(count < 5){
+        playerSelection = prompt("make your choice: Rock, Paper or Scissors :").toLowerCase();
+        computerSelection = getComputerChoice(arrayChoice); 
+        if(playerSelection === computerSelection){
+            count--;
+        }
+        console.log(playRound(playerSelection, computerSelection));
+        count++;
+    }
 }
 
- let input = prompt("make your choice: Rock, Paper or Scissors :");
-//those variables going to be use all around the program.
-let playerSelection = input.toLowerCase();
-let computerSelection = getComputerChoice(arrayChoice); 
-
-let result = game();
-console.log(result);
+console.log(game());
