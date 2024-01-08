@@ -7,7 +7,6 @@ function getComputerChoice(arr){
  return arrayChoice[choice];
 }
 
-
 function playRound(playerSelection, computerSelection){ 
 
     if (playerSelection === "rock" && computerSelection === "paper") {
@@ -27,25 +26,4 @@ function playRound(playerSelection, computerSelection){
         return "TIES!";
     }
 }
-
-    let count = 0;
-    let playerSelection;
-    let computerSelection ;
-
     
-    
-
- function game(){
-
-    while(count < 5){
-        playerSelection = prompt("make your choice: Rock, Paper or Scissors :").toLowerCase();
-        computerSelection = getComputerChoice(arrayChoice); 
-        if(playerSelection === computerSelection){
-            count--;
-        }
-        console.log(playRound(playerSelection, computerSelection));
-        count++;
-    }
-}
-
-console.log(game());

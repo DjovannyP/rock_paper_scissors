@@ -1,0 +1,53 @@
+body{
+    margin: auto;
+    background-color: rgb(10, 1, 61);
+}
+h1{
+    text-align: center;
+    color: white;
+}
+
+.result-container{
+    display: flex;
+    justify-content: space-between;
+    margin: 50px;
+}
+
+.result-screen{
+    width: 450px;
+    height: 250px;
+    background-color: aqua;
+    display: flex;
+    border-radius: 12px;
+    border: dotted gray 2px;
+}
+.score-screen{
+    width: 150px;
+    height: 150px;
+    background-color: white;
+    border-radius: 100%;
+}
+h3{
+    text-align: center;
+    background-color: orange;
+    padding: 10px;
+    border-radius: 8px;
+}
+.button-container{
+   display: flex;
+   justify-content: center;
+    width: auto;
+    gap: 20px;
+    margin: 20px;
+}
+.btn-style{
+    height: 50px;
+    width: 100px;
+    border-radius: 15px;
+    border: solid gray 2px;
+    background-color: rgb(105, 33, 105);
+    font-weight: bold;
+    font-size: 1.2rem;
+    font-family: fantasy;
+    color: white;
+}
