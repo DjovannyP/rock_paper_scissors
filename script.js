@@ -7,23 +7,89 @@ function getComputerChoice(arr){
  return arrayChoice[choice];
 }
 
-function playRound(playerSelection, computerSelection){ 
+const rockBtn = document.querySelector('#rock')
+const paperBtn = document.querySelector('#paper')
+const scissorsBtn = document.querySelector('#scissors')
+const result = document.querySelector('.result-screen h1');
+const playerScoreDisplay = document.querySelector('#player-score p');
+const computerScoreDisplay = document.querySelector('#computer-score p'); 
+let playerScore = 0;
+console.log(playerScore);
+let computerScore = 0;
+console.log(computerScore);
 
+function playRound(playerSelection, computerSelection){ 
     if (playerSelection === "rock" && computerSelection === "paper") {
+        computerScore ++;
+        console.log(`${computerScore}: I am inside the function`)
         return "You lose! Paper beats rock";
+        
     } 
     else if (playerSelection === "paper" && computerSelection === "rock") {
-        return "You win! Paper beats rock";
+        playerScore ++;
+        return "You win! Paper beats Rock";
+
     } else if (playerSelection === "rock" && computerSelection === "scissors") {
-        return "You win! Rock beats scissors";
+        playerScore ++;
+        return "You win! Rock beats Scissors";
+
     } else if (playerSelection === "scissors" && computerSelection === "rock") {
-        return "You lose! Rock beats scissors";
+        computerScore ++;
+        return "You lose! Rock beats Scissors";
+
     } else if (playerSelection === "paper" && computerSelection === "scissors") {
-        return "You lose! Scissors beat paper";
+        computerScore++;
+        return "You lose! Scissors beat Paper";
+
     } else if (playerSelection === "scissors" && computerSelection === "paper") {
-        return "You win! Scissors beat paper";
+        playerScore++;
+        return "You win! Scissors beat Paper";
+
     } else {
         return "TIES!";
     }
 }
+//score display
+
+
+
+//player and computer selection
+let playerSelection;
+let computerSelection;
+
+
+
+
+    //rock
+
+    rockBtn.addEventListener('click',(e) =>{
+        playerSelection = e.target.value;
+        computerSelection = getComputerChoice(arrayChoice);
+        result.textContent = playRound(playerSelection, computerSelection);
     
+    })
+    
+    playerScoreDisplay.textContent = playerScore;
+    console.log(playerScoreDisplay);
+    computerScoreDisplay.textContent = computerScore;
+
+
+
+
+//paper
+paperBtn.addEventListener('click',(e) =>{
+    playerSelection = e.target.value;
+    computerSelection = getComputerChoice(arrayChoice);
+    result.textContent = playRound(playerSelection, computerSelection);
+
+})
+//scissors
+
+scissorsBtn.addEventListener('click',(e) =>{
+    playerSelection = e.target.value;
+    computerSelection = getComputerChoice(arrayChoice);
+    result.textContent = playRound(playerSelection, computerSelection);
+
+})
+
+
