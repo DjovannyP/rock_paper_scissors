@@ -14,14 +14,12 @@ const result = document.querySelector('.result-screen h1');
 const playerScoreDisplay = document.querySelector('#player-score p');
 const computerScoreDisplay = document.querySelector('#computer-score p'); 
 let playerScore = 0;
-console.log(playerScore);
 let computerScore = 0;
-console.log(computerScore);
+
 
 function playRound(playerSelection, computerSelection){ 
     if (playerSelection === "rock" && computerSelection === "paper") {
         computerScore ++;
-        console.log(`${computerScore}: I am inside the function`)
         return "You lose! Paper beats rock";
         
     } 
@@ -44,7 +42,6 @@ function playRound(playerSelection, computerSelection){
     } else if (playerSelection === "scissors" && computerSelection === "paper") {
         playerScore++;
         return "You win! Scissors beat Paper";
-
     } else {
         return "TIES!";
     }
@@ -58,38 +55,21 @@ let playerSelection;
 let computerSelection;
 
 
+const buttons = document.querySelectorAll('button');
+const buttonsArray = Array.from(buttons);
 
-
-    //rock
-
-    rockBtn.addEventListener('click',(e) =>{
+for(let i = 0; i < buttonsArray.length; i++){
+    buttonsArray[i].addEventListener('click', (e) =>{
         playerSelection = e.target.value;
         computerSelection = getComputerChoice(arrayChoice);
         result.textContent = playRound(playerSelection, computerSelection);
+        playerScoreDisplay.textContent = playerScore;
+        computerScoreDisplay.textContent = computerScore
     
-    })
-    
-    playerScoreDisplay.textContent = playerScore;
-    console.log(playerScoreDisplay);
-    computerScoreDisplay.textContent = computerScore;
+    });
+}
 
+    //rock
 
-
-
-//paper
-paperBtn.addEventListener('click',(e) =>{
-    playerSelection = e.target.value;
-    computerSelection = getComputerChoice(arrayChoice);
-    result.textContent = playRound(playerSelection, computerSelection);
-
-})
-//scissors
-
-scissorsBtn.addEventListener('click',(e) =>{
-    playerSelection = e.target.value;
-    computerSelection = getComputerChoice(arrayChoice);
-    result.textContent = playRound(playerSelection, computerSelection);
-
-})
 
 
