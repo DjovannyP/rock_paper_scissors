@@ -19,7 +19,6 @@ let computerSelection;
 let playerScore = 0;
 let computerScore = 0;
 
-
 function playRound(playerSelection, computerSelection){ 
     if (playerSelection === "rock" && computerSelection === "paper") {
         computerScore ++;
@@ -50,11 +49,11 @@ function playRound(playerSelection, computerSelection){
     }
 }
 
-function gameStop(){
+function gameOver(){
     if(playerScore > computerScore){
-        return "Congratulation! You win!";
+        return "Congratulation! You win.";
     }else{
-        return " You lose! Take your revenge!"
+        return " You lose! Take your revenge.";
     }
 }
 
@@ -62,14 +61,12 @@ for(let i = 0; i < buttons.length; i++){
     buttons[i].addEventListener('click', (e) =>{
         playerSelection = e.target.value;
         computerSelection = getComputerChoice(arrayChoice);
-        result.textContent = playerScore == 5 || computerScore == 5 ? gameStop() : playRound(playerSelection, computerSelection);
+        result.textContent = playerScore === 5 || computerScore === 5 ? gameOver() : playRound(playerSelection, computerSelection);
         playerScoreDisplay.textContent = playerScore;
         computerScoreDisplay.textContent = computerScore;
     });
     
+    
 }
 
     
-
-
-
